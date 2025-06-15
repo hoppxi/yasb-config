@@ -1,0 +1,725 @@
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Variables                                                                                         */
+/* -------------------------------------------------------------------------------------------------- */
+
+:root {
+	--blush-petal: rgb(248, 222, 218);   /* rosewater → blush-petal */
+	--sunset-peach: rgb(243, 208, 195);  /* flamingo → sunset-peach */
+	--orchid-bloom: rgb(240, 198, 226);  /* pink → orchid-bloom */
+	--violet-mist: rgb(190, 160, 230);     /* mauve → violet-mist */
+	--coral-glow: rgb(236, 120, 146);    /* red → coral-glow */
+	--rosewood: rgb(221, 145, 157);      /* maroon → rosewood */
+	--apricot-haze: rgb(247, 176, 128);  /* peach → apricot-haze */
+	--amberlight: rgb(245, 215, 160);    /* yellow → amberlight */
+	--moss-green: rgb(150, 210, 150);    /* green → moss-green */
+	--seafoam: rgb(134, 211, 198);       /* teal → seafoam */
+	--clear-sky: rgb(125, 205, 225);     /* sky → clear-sky */
+	--coastal-blue: rgb(105, 185, 220);  /* sapphire → coastal-blue */
+	--morning-blue: rgb(125, 170, 240);  /* blue → morning-blue */
+	--lavender-field: rgb(165, 180, 250);/* lavender → lavender-field */
+
+	--cloud-text: rgb(215, 222, 245);    /* text → cloud-text */
+	--mist-text: rgb(195, 202, 230);       /* subtext1 → mist-text */
+	--fog-text: rgb(175, 182, 210);        /* subtext0 → fog-text */
+
+	--soft-overlay: rgb(155, 160, 190);    /* overlay2 → soft-overlay */
+	--mid-overlay: rgb(135, 140, 170);     /* overlay1 → mid-overlay */
+	--deep-overlay: rgb(115, 120, 145);    /* overlay0 → deep-overlay */
+
+	--twilight-surface: rgba(95, 98, 120, .5);  /* surface2 → twilight-surface */
+	--evening-surface: rgba(75, 78, 100, .5);   /* surface1 → evening-surface */
+	--night-surface: rgba(50, 52, 70, .5);      /* surface0 → night-surface */
+
+	--dusk-base: rgba(38, 38, 54, .5);          /* base → dusk-base */
+	--midnight-mantle: rgba(28, 28, 42, .5);    /* mantle → midnight-mantle */
+	--noir-crust: rgba(20, 20, 30, .5);         /* crust → noir-crust */
+}
+
+
+
+/***-------------------------------      • Layout •      --------------------------------***/
+
+* {
+	font-size: 10px;
+	color: #cdd6f4;
+	font-weight: 900;
+	font-family: "JetBrainsMono NFP";
+	margin: 0;
+	padding: 0;
+}
+.yasb-bar {
+	padding: 0 3px;
+	margin: 0;
+	background-color: var(--dusk-base);
+	border-radius: 5px;
+}
+
+.widget {
+	padding: 0 7px;
+	margin: 5px 2px;
+    border-radius: 3px;
+    background-color: var(--night-surface);
+}
+
+.widget .label {
+	padding: 2px 2px 1px 2px;
+
+}
+
+.widget .label.alt {
+	padding: 1px 8px 1px 8px;
+}
+
+/***-------------------------------      • GlazeWM •      --------------------------------***/
+
+.glazewm-workspaces .widget-container {
+	background-color: var(--midnight-mantle);
+	margin: 3px 0px 3px 0px;
+	border-radius: 8px;
+}
+.glazewm-workspaces .widget-container {
+	background-color: var(--midnight-mantle);
+	margin: 3px 0px 3px 0px;
+	border-radius: 8px;
+}
+.glazewm-workspaces .ws-btn {
+    border: none;
+    background-color: var(--twilight-surface);
+    margin: 0px 3px;
+    padding: 0;
+    color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    height: 10px;
+    width: 10px;
+}
+.glazewm-workspaces .ws-btn.populated {
+    background-color:var(--twilight-surface);
+}
+.glazewm-workspaces .ws-btn.active_populated,
+.glazewm-workspaces .ws-btn.active_empty {
+    color: rgba(0, 68, 255, 0);
+    background-color:var(--violet-mist);
+    width: 28px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/***---------------------------------      • Audio Widget •      ----------------------------------***/
+
+.audio-menu {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.audio-container .device {
+	/* background-color: var(--midnight-mantle); */
+	border: none;
+	padding: 6px 8px 6px 4px;
+	margin: 2px 0;
+	font-size: 12px;
+	border-radius: 4px;
+}
+.audio-container .device.selected {
+	background-color: var(--evening-surface);
+}
+.audio-container .device:hover {
+	background-color: var(--evening-surface);
+}
+.volume-slider::handle {
+	background-color: var(--violet-mist);
+    border-radius: 5px;
+}
+
+/***---------------------------------      • Icons •      ----------------------------------***/
+
+.icon {
+	font-size: 16px;
+	color: var(--violet-mist);
+}
+.volume-widget .icon {
+	margin: 1px 2px 0 0;
+}
+.start-menu .icon {
+	font-size: 18px;
+}
+.clock-widget .icon {
+	color: #cba6f7;
+	font-size: 14px;
+	margin-right: 7px;
+}
+.wallpapers-widget .icon {
+	color: #cba6f7;
+}
+.active-window-widget {
+    padding-left: 7px;
+    padding-right: 0;
+}
+.widget:hover {
+    background-color: var(--midnight-mantle);
+}
+
+/***----------------------------------      • Weather Card •      -----------------------------------***/
+
+.weather-card {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.weather-card-today {
+	border-radius: 8px;
+	background-color: var(--dusk-base);
+	color: var(--cloud-text);
+}
+.weather-card-today .label {
+	font-size: 12px;
+}
+.weather-card-today .label.location {
+	font-size: 24px;
+	font-weight: 800;
+}
+.weather-card-today .label.alert {
+	font-size: 12px;
+	font-weight: 700;
+	background-color: rgba(247, 199, 42, 0.05);
+	border: 1px solid rgba(247, 209, 42, 0.1);
+	color: rgba(196, 181, 162, 0.85);
+	border-radius: 8px;
+	padding: 5px 0;
+}
+.weather-card-day {
+	border-radius: 8px;
+	background-color: var(--dusk-base);
+}
+.weather-card-day .label {
+	font-size: 12px;
+}
+
+/***----------------------------------      • Calender card •      -----------------------------------***/
+
+.calendar {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+	background-color: rgba(17, 17, 27, 0);
+	color: var(--mid-overlay);
+	margin: 0;
+	padding: 0;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+	color: #4c4f69;
+	background: var(--violet-mist);
+	border-radius: 8px;
+}
+.calendar .day-label {
+	margin-top: 20px;
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+	font-size: 16px;
+	color: var(--cloud-text);
+	font-weight: 700;
+	min-width: 180px;
+	max-width: 180px;
+}
+.calendar .month-label {
+	font-weight: normal;
+	padding-bottom: 12px;
+}
+.calendar .date-label {
+	font-size: 88px;
+	font-weight: 900;
+	color: var(--cloud-text);
+	margin-top: -20px;
+}
+
+/***----------------------------------      • Home and Folders card •      -----------------------------------***/
+
+.home-menu {
+	background-color: var(--midnight-mantle);
+	border-radius: 8px;
+	padding: 0;
+	margin-left: 0px;
+}
+.home-menu .menu-item {
+	padding: 8px 48px 8px 12px;
+	font-size: 12px;
+	font-weight: 600;
+}
+.home-menu .menu-item:hover {
+	background-color: var(--mid-overlay);
+	color: #181825;
+	margin: 4px 6px;
+	border-radius: 4px;
+}
+.home-menu .separator {
+	max-height: 1px;
+	background-color: #45475a;
+	margin: 0 8px;
+}
+
+/***----------------------------------      • Update check •      -----------------------------------***/
+
+.update-check-widget {
+    padding: 0 0px 0 0px;
+}
+.update-check-widget .icon {
+    font-size: 16px;
+}
+.update-check-widget .widget-container.winget,
+.update-check-widget .widget-container.windows {
+    background: var(--mauve);
+    margin: 0px 0px 0px 0px;
+    border-radius: 8px;
+    border: 0px solid var(--sapphire);
+}
+.update-check-widget .widget-container.winget .icon,
+.update-check-widget .widget-container.windows .icon {
+    color: var(--base);
+    margin: 0 2px 0 6px;
+}
+.update-check-widget .widget-container.winget .label,
+.update-check-widget .widget-container.windows .label {
+    margin: 0 6px 0 1px;
+    color: var(--base);
+    font-weight: 900;
+    font-size: 14px;
+}
+
+/***----------------------------------      • Note check •      -----------------------------------***/
+
+.notes-widget .label {
+   font-size: 14px;
+   color: rgb(203, 166, 247);
+}
+
+.notes-menu {
+    min-width: 400px;
+    max-width: 400px;
+    background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.notes-menu .note-item {
+    background-color:transparent;
+    border-bottom: 1px solid var(--evening-surface);
+}
+.notes-menu .note-item:hover {
+    background-color: var(--night-surface);
+}
+.notes-menu .note-item .icon {
+    font-size: 16px;
+    padding: 0 4px;
+    color: rgb(203, 166, 247);
+}
+.notes-menu .delete-button {
+    color: #ff6b6b;
+    background: transparent;
+    border: none;
+    font-size: 8px;
+    padding: 7px 8px;
+    border-radius: 3px;
+}
+.notes-menu .delete-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.notes-menu .note-item .title {
+    font-size: 13px;
+    font-family: 'Segoe UI';
+}
+.notes-menu .note-item .date {
+    font-size: 12px;
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.4);
+}
+.notes-menu .empty-list {
+    font-family: 'Segoe UI';
+    color: rgb(203, 166, 247);
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0 20px 0;     
+}
+.notes-menu .add-button,  
+.notes-menu .cancel-button {
+    padding: 8px;
+    background-color: var(--night-surface);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Segoe UI';
+}
+.notes-menu .cancel-button {
+    margin-left: 4px;
+}
+.notes-menu .add-button:hover,
+.notes-menu .cancel-button:hover {
+    background-color: var(--evening-surface);
+}
+.notes-menu .scroll-area {
+    background: transparent; 
+    border: none; 
+    border-radius:0;
+}
+.notes-menu .note-input {
+    background-color:var(--dusk-base);
+    border: 1px solid var(--violet-mist);
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    max-height: 30px;
+    padding: 4px;
+    border-radius: 6px;
+}
+.note-input:focus {
+    border: 1px solid var(--violet-mist);
+}
+
+/***----------------------------------      • Media •      -----------------------------------***/
+
+.media-widget {
+	padding: 0;
+    padding-left: 3px;
+}
+.media-widget .label {
+	/* color: var(--lavender-field); */
+    padding-left: 5px;
+}
+.media-widget .label .media_icon {
+    font-size: 13px !important;
+}
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: var(--midnight-mantle);
+	border-radius: 8px;
+}
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-family: 'Segoe UI';
+}
+.media-menu .artist {
+    font-size: 13px;
+    color: var(--violet-mist);
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.media-menu .source {
+    font-size: 11px;
+    color: var(--dusk-base);
+    font-weight: normal;
+    border-radius: 3px;
+    background-color: var(--deep-overlay);
+    padding: 2px 4px;
+
+}
+.media-menu .source.firefox {
+    background-color: #ff583b;
+    color: #ffffff;
+}
+.media-menu .source.spotify {
+    background-color: #199143;
+    color: #ffffff;
+}
+.media-menu .source.edge {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+.media-menu .source.windows-media {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+
+.media-menu .btn {
+    font-family: "Segoe Fluent Icons";
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+	color: var(--deep-overlay) ;
+}
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+.media-menu .btn:hover {
+    color: var(--soft-overlay);
+}
+.media-menu .btn.play {
+    font-size: 24px
+}
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+    color: #4e525c;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.media-menu .playback-time {
+    font-size: 13px;
+    font-family: 'Segoe UI';
+    color: var(--violet-mist);
+    margin-top: 20px;
+    min-width: 100px;
+}
+.media-menu .progress-slider {
+    height: 10px;
+    margin: 5px 4px;
+    border-radius: 3px;
+}
+.media-menu .progress-slider::groove {
+    background: transparent;
+    height: 2px;
+    border-radius: 3px;
+    background: var(--night-surface);
+
+}
+.media-menu .progress-slider::groove:hover {
+    background: transparent;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--night-surface);
+}
+.media-menu .progress-slider::sub-page {
+    background: var(--violet-mist);
+    border-radius: 3px;
+    height: 4px;
+}
+
+/***----------------------------------      • Wallpaper •      -----------------------------------***/
+
+.wallpapers-gallery-window {
+	border: 2px;
+	margin: 0;
+    border-radius: 8px;
+}
+.wallpapers-gallery-buttons {
+	background-color: var(--dusk-base);
+	color: var(--cloud-text);
+	border: none;
+	font-size: 16px;
+	padding: 8px 0px;
+	border-radius: 8px;
+	margin: 8px 8px 8px 8px;
+	width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+	background-color: var(--evening-surface);
+}
+.wallpapers-widget {
+    padding: 0 6px 0 6px;
+}
+
+/***----------------------------------      • system tray •      -----------------------------------***/
+
+.systray .pinned-container {
+    background: transparent;
+}
+.systray .pinned-container[forceshow=true] {
+    background: var(--evening-surface);
+}
+.systray .button {
+    border-radius: 4px;
+    padding: 2px 2px;
+}
+.systray .button:hover {
+    background: var(--evening-surface);
+}
+.systray .button[dragging=true] {
+    background: cyan;
+    border-color: #FF8800;
+}
+.systray .unpinned-visibility-btn {
+    border-radius: 4px;
+    height: 20px;
+    width: 16px;
+}
+.systray .unpinned-visibility-btn:checked {
+    background: var(--evening-surface);
+}
+.systray .unpinned-visibility-btn:hover {
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    border-color: #AAAAAA;
+}
+
+/***----------------------------------      • Battery •      -----------------------------------***/
+
+.battery-widget .widget-container .label.status-low {
+	color: var(--coral-glow);
+	background: rgba(243, 139, 168, 0.245);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 8px;
+}
+.battery-widget .widget-container .label.status-medium {
+	color: var(--amberlight);
+	background: rgba(249, 226, 175, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 8px;
+}
+.battery-widget .widget-container .label.status-high {
+	color: var(--seafoam);
+	background: rgba(148, 226, 213, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 8px;
+}
+.battery-widget .widget-container .label.status-full {
+	color: var(--moss-green);
+	background: rgba(166, 227, 161, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 8px;
+}
+.battery-widget .widget-container .label.status-charging {
+	color: var(--morning-blue);
+	background: rgba(137, 180, 250, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 8px;
+}
+.battery-widget .widget-container .icon.status-low {
+	color: var(--coral-glow);
+}
+.battery-widget .widget-container .icon.status-medium {
+	color: var(--amberlight);
+}
+.battery-widget .widget-container .icon.status-high {
+	color: var(--seafoam);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-full {
+	color: var(--moss-green);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-charging {
+	color: var(--morning-blue);
+}
+
+/***----------------------------------      • Battery •      -----------------------------------***/
+
+.github-widget .label {
+   font-size: 14px;
+   color: rgb(203, 166, 247);
+}
+.github-menu    {
+    background-color: transparent;
+    max-height: 500px;
+    min-height: 500px;
+    min-width: 400px;
+    border-radius: 8px;
+}
+.github-menu .header {
+    border-bottom: 1px solid var(--evening-surface);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px;
+    color: white;
+    background-color: var(--midnight-mantle);
+}
+.github-menu .footer {
+    border-top: 1px solid var(--evening-surface);
+    font-size: 12px;
+    padding: 4px 8px 6px 8px;
+    color: #9399b2;
+    background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.github-menu .contents {
+    background-color:  var(--midnight-mantle);
+    border-radius: 8px;
+}
+.github-menu .contents .item {
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 8px;
+}
+.github-menu .contents .item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+    color: #9399b2;
+    font-family: Segoe UI;
+}
+.github-menu .contents .item .title {
+    font-size: 14px;
+    font-weight: 600; 
+}
+.github-menu .contents .item .description {
+    font-size: 12px;
+    font-weight: 500
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+    color: #ffffff
+}
+.github-menu .contents .item .icon {
+    font-size: 16px;
+    padding-right: 0;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: #9399b2;
+}
+.github-menu .contents .item.new .icon {
+    color: #3fb950;
+}
+
+/***----------------------------------      • Apps •      -----------------------------------***/
+
+.apps-widget .widget-container .label { 
+    font-size: 13px;
+} 
+
+/***----------------------------------      • Vscode •      -----------------------------------***/
+
+.vscode-menu {
+    max-height: 500px;
+    min-height: 500px;
+    min-width: 350px;
+}
+.vscode-menu .header {
+    border-bottom: 1px solid var(--evening-surface);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px;
+    color: #cdd6f4;
+    background-color: var(--midnight-mantle);
+}
+.vscode-menu .contents {
+    background-color: var(--midnight-mantle);
+}
+.vscode-menu .contents .item {
+    min-height: 30px;
+    border-bottom: 1px solid var(--evening-surface);
+}
+.vscode-menu .contents .item .title {
+    font-size: 12px;
+    margin-right: 5px;
+}
+.vscode-menu .contents .item .folder-icon {
+    font-size: 16px;
+    margin-left: 8px;
+    color: #f2cdcd;
+}
+.vscode-menu .contents .item .file-icon {
+    font-size: 16px;
+    margin-left: 8px;
+    color: #cba6f7;
+}
+.vscode-menu .contents .item:hover {
+    background-color: #45475a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
