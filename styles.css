@@ -1,199 +1,350 @@
 
-/* -------------------------------------------------------------------------------------------------- */
-/* Variables                                                                                         */
-/* -------------------------------------------------------------------------------------------------- */
-
 :root {
-	--blush-petal: rgb(248, 222, 218);   /* rosewater → blush-petal */
-	--sunset-peach: rgb(243, 208, 195);  /* flamingo → sunset-peach */
-	--orchid-bloom: rgb(240, 198, 226);  /* pink → orchid-bloom */
-	--violet-mist: rgb(190, 160, 230);     /* mauve → violet-mist */
-	--coral-glow: rgb(236, 120, 146);    /* red → coral-glow */
-	--rosewood: rgb(221, 145, 157);      /* maroon → rosewood */
-	--apricot-haze: rgb(247, 176, 128);  /* peach → apricot-haze */
-	--amberlight: rgb(245, 215, 160);    /* yellow → amberlight */
-	--moss-green: rgb(150, 210, 150);    /* green → moss-green */
-	--seafoam: rgb(134, 211, 198);       /* teal → seafoam */
-	--clear-sky: rgb(125, 205, 225);     /* sky → clear-sky */
-	--coastal-blue: rgb(105, 185, 220);  /* sapphire → coastal-blue */
-	--morning-blue: rgb(125, 170, 240);  /* blue → morning-blue */
-	--lavender-field: rgb(165, 180, 250);/* lavender → lavender-field */
+	--blush-petal: rgb(248, 222, 218);  
+	--sunset-peach: rgb(243, 208, 195);  
+	--orchid-bloom: rgb(240, 198, 226);  
+	--violet-mist: rgb(190, 160, 230);     
+	--coral-glow: rgb(236, 120, 146);    
+	--rosewood: rgb(221, 145, 157);      
+	--apricot-haze: rgb(247, 176, 128);  
+	--amberlight: rgb(245, 215, 160);    
+	--moss-green: rgb(150, 210, 150);    
+	--seafoam: rgb(134, 211, 198);       
+	--clear-sky: rgb(125, 205, 225);     
+	--coastal-blue: rgb(105, 185, 220);  
+	--morning-blue: rgb(125, 170, 240);  
+	--lavender-field: rgb(165, 180, 250);
 
-	--cloud-text: rgb(215, 222, 245);    /* text → cloud-text */
-	--mist-text: rgb(195, 202, 230);       /* subtext1 → mist-text */
-	--fog-text: rgb(175, 182, 210);        /* subtext0 → fog-text */
+	--cloud-text: rgb(215, 222, 245);    
+	--mist-text: rgb(195, 202, 230);       
+	--fog-text: rgb(175, 182, 210);        
 
-	--soft-overlay: rgb(155, 160, 190);    /* overlay2 → soft-overlay */
-	--mid-overlay: rgb(135, 140, 170);     /* overlay1 → mid-overlay */
-	--deep-overlay: rgb(115, 120, 145);    /* overlay0 → deep-overlay */
+	--soft-overlay: rgb(155, 160, 190);    
+	--mid-overlay: rgba(135, 140, 170, .5);     
+	--deep-overlay: rgb(115, 120, 145);    
 
-	--twilight-surface: rgba(95, 98, 120, .5);  /* surface2 → twilight-surface */
-	--evening-surface: rgba(75, 78, 100, .5);   /* surface1 → evening-surface */
-	--night-surface: rgba(50, 52, 70, .5);      /* surface0 → night-surface */
+	--twilight-surface: rgba(95, 98, 120, .6); 
+	--evening-surface: rgba(75, 78, 100, .5);  
+	--night-surface: rgba(50, 52, 70, .3);     
 
-	--dusk-base: rgba(38, 38, 54, .5);          /* base → dusk-base */
-	--midnight-mantle: rgba(28, 28, 42, .5);    /* mantle → midnight-mantle */
-	--noir-crust: rgba(20, 20, 30, .5);         /* crust → noir-crust */
+	--dusk-base: rgba(38, 38, 54, .5);         
+	--midnight-mantle: rgba(28, 28, 42, .3);   
+	--noir-crust: rgb(20, 20, 30);        
 }
 
-
-
-/***-------------------------------      • Layout •      --------------------------------***/
-
 * {
-	font-size: 10px;
+	font-size: 11px;
 	color: #cdd6f4;
-	font-weight: 900;
+	font-weight: 500;
 	font-family: "JetBrainsMono NFP";
 	margin: 0;
 	padding: 0;
 }
 .yasb-bar {
-	padding: 0 3px;
+	padding: 0 4px;
 	margin: 0;
-	background-color: var(--dusk-base);
-	border-radius: 5px;
+	background-color: rgba(54, 54, 58, 0.6);
 }
-
 .widget {
-	padding: 0 7px;
-	margin: 5px 2px;
-    border-radius: 3px;
-    background-color: var(--night-surface);
+	background-color: #1e1e2e60;
+	padding: 0 4px;
+	margin: 4px 0;
 }
-
 .widget .label {
-	padding: 2px 2px 1px 2px;
-
+	padding: 1px 2px 1px 2px;
 }
-
 .widget .label.alt {
 	padding: 1px 8px 1px 8px;
 }
-
-/***-------------------------------      • GlazeWM •      --------------------------------***/
-
-.glazewm-workspaces .widget-container {
-	background-color: var(--midnight-mantle);
-	margin: 3px 0px 3px 0px;
-	border-radius: 8px;
+.icon {
+	font-size: 16px;
 }
-.glazewm-workspaces .widget-container {
-	background-color: var(--midnight-mantle);
-	margin: 3px 0px 3px 0px;
-	border-radius: 8px;
+
+/* 
+
+	Widgets
+
+*/
+
+/* 
+	Systray
+*/
+
+.systray {
+	border-radius: 13px;
+	padding: 0 8px;
+	margin: 4px 2px;
 }
+.systray .pinned-container {
+    background: transparent;
+}
+.systray .button {
+    border-radius: 4px;
+    padding: 2px 2px;
+}
+.systray .button:hover {
+    background: var(--twilight-surface);
+}
+.systray .button[dragging=true] {
+    background: cyan;
+    border-color: #FF8800;
+}
+.systray .unpinned-visibility-btn {
+    border-radius: 4px;
+    height: 20px;
+    width: 16px;
+}
+.systray .unpinned-visibility-btn:checked {
+    background: var(--twilight-surface);
+}
+.systray .unpinned-visibility-btn:hover {
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    border-color: #AAAAAA;
+}
+
+/* 
+	Update check
+*/
+
+.update-check-widget {
+	border-radius: 13px;
+	padding: 0 6px;
+	margin: 4px 2px;
+}
+
+/* 
+	Quick settings
+*/
+
+.brightness-widget {
+	padding-left: 6px;
+	border-bottom-left-radius: 13px;
+	border-top-left-radius: 13px;
+	margin: 4px 0px 4px 2px;
+}
+
+.wifi-widget {
+	padding-right: 6px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+	margin: 4px 2px 4px 0px;
+}
+
+/* 
+	Battery
+*/
+.battery-widget {
+	border-radius: 13px;
+	margin: 4px 2px;
+}
+.battery-widget .widget-container .label.status-critical {
+	color: var(--coral-glow);
+	background: rgba(230, 24, 24, 0.245);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-low {
+	color: var(--coral-glow);
+	background: rgba(243, 139, 168, 0.245);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-medium {
+	color: var(--amberlight);
+	background: rgba(249, 226, 175, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-high {
+	color: var(--seafoam);
+	background: rgba(148, 226, 213, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-full {
+	color: var(--moss-green);
+	background: rgba(166, 227, 161, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-charging {
+	color: var(--morning-blue);
+	background: rgba(137, 180, 250, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .icon.status-low {
+	color: var(--coral-glow);
+}
+.battery-widget .widget-container .icon.status-medium {
+	color: var(--amberlight);
+}
+.battery-widget .widget-container .icon.status-high {
+	color: var(--seafoam);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-full {
+	color: var(--moss-green);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-charging {
+	color: var(--morning-blue);
+}
+
+/* 
+	Apps 
+*/
+
+.apps-widget {
+	border-radius: 13px;
+	padding: 0;
+	margin: 4px 0px 4px 2px;
+}
+
+.apps-widget .label {
+	font-size: 14px;
+}
+.apps-widget .label:hover {
+	color: #fff;
+}
+
+/* 
+	Clock
+*/
+
+.clock-widget {
+	border-radius: 13px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin: 4px 2px 4px 0px;
+}
+
+/* 
+	Quick apps
+*/
+
+.notes-widget {
+	padding-right: 10px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+}
+.wallpapers-widget {
+	padding-left: 10px;
+	border-bottom-left-radius: 13px;
+	border-top-left-radius: 13px;
+	margin: 4px 0px 4px 2px;
+}
+
+/* 
+	Active window
+*/
+
+.active-window-widget {
+	border-radius: 13px;
+	padding-left: 12px;
+	margin: 4px 2px;
+}
+
+/* 
+	Glazewm and home
+*/
+
 .glazewm-workspaces .ws-btn {
-    border: none;
-    background-color: var(--twilight-surface);
-    margin: 0px 3px;
-    padding: 0;
-    color: rgba(0, 0, 0, 0);
-    border-radius: 5px;
-    height: 10px;
-    width: 10px;
-}
-.glazewm-workspaces .ws-btn.populated {
-    background-color:var(--twilight-surface);
+    /* border: .6px solid var(--cloud-text); */
+    color: #00000000;
+	width: 12px;
+	height: 12px;
+	background-color: var(--mid-overlay);
+	border-radius: 6px;
+	margin: 0 2px;
 }
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
-    color: rgba(0, 68, 255, 0);
-    background-color:var(--violet-mist);
-    width: 28px;
-    height: 10px;
-    border-radius: 5px;
-}
-
-/***---------------------------------      • Audio Widget •      ----------------------------------***/
-
-.audio-menu {
-	background-color: var(--midnight-mantle);
-    border-radius: 8px;
-}
-.audio-container .device {
-	/* background-color: var(--midnight-mantle); */
-	border: none;
-	padding: 6px 8px 6px 4px;
-	margin: 2px 0;
-	font-size: 12px;
-	border-radius: 4px;
-}
-.audio-container .device.selected {
-	background-color: var(--evening-surface);
-}
-.audio-container .device:hover {
-	background-color: var(--evening-surface);
-}
-.volume-slider::handle {
 	background-color: var(--violet-mist);
-    border-radius: 5px;
+	width: 33px;
+}
+.glazewm-workspaces .ws-btn:hover {
+    background-color: var(--rosewood);
+}
+.glazewm-tiling-direction {
+	padding-right: 10px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+	margin: 4px 2px 4px 0px;
+}
+.glazewm-tiling-direction .btn {
+    font-size: 18px;
+    border: none;
+}
+.home-widget {
+	padding-left: 10px;
+	border-bottom-left-radius: 13px;
+	border-top-left-radius: 13px;
 }
 
-/***---------------------------------      • Icons •      ----------------------------------***/
+/* 
+	Media
+*/
 
-.icon {
-	font-size: 16px;
+.media-widget {
+    padding: 0 6px;
+	border-radius: 13px;
+	margin-right: 4px 2px;
+}
+.media-widget .label {
+    padding-left: 5px;
+}
+.media-widget .btn {
+    font-size: 13px;
+	padding-left: 5px;
+}
+.media-widget .btn:hover {
 	color: var(--violet-mist);
 }
-.volume-widget .icon {
-	margin: 1px 2px 0 0;
+
+/* 
+	Taskbar
+*/
+
+.taskbar-widget {
+	border-radius: 13px;
+	padding: 0 6px;
+	margin: 4px 2px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
-.start-menu .icon {
-	font-size: 18px;
+.taskbar-widget .app-icon {
+	padding: 0 3px;
+	margin: 2px .5px;
+	border-radius: 6px;
 }
-.clock-widget .icon {
-	color: #cba6f7;
-	font-size: 14px;
-	margin-right: 7px;
+.taskbar-widget .app-icon.foreground{
+	background-color: var(--twilight-surface);
 }
-.wallpapers-widget .icon {
-	color: #cba6f7;
+.taskbar-widget .app-icon:hover{
+	background-color: var(--twilight-surface);
 }
-.active-window-widget {
-    padding-left: 7px;
-    padding-right: 0;
-}
-.widget:hover {
-    background-color: var(--midnight-mantle);
+.taskbar-widget .app-icon.foreground:hover {
+	background-color: var(--mid-overlay);
 }
 
-/***----------------------------------      • Weather Card •      -----------------------------------***/
+/* 
 
-.weather-card {
-	background-color: var(--midnight-mantle);
-    border-radius: 8px;
-}
-.weather-card-today {
-	border-radius: 8px;
-	background-color: var(--dusk-base);
-	color: var(--cloud-text);
-}
-.weather-card-today .label {
-	font-size: 12px;
-}
-.weather-card-today .label.location {
-	font-size: 24px;
-	font-weight: 800;
-}
-.weather-card-today .label.alert {
-	font-size: 12px;
-	font-weight: 700;
-	background-color: rgba(247, 199, 42, 0.05);
-	border: 1px solid rgba(247, 209, 42, 0.1);
-	color: rgba(196, 181, 162, 0.85);
-	border-radius: 8px;
-	padding: 5px 0;
-}
-.weather-card-day {
-	border-radius: 8px;
-	background-color: var(--dusk-base);
-}
-.weather-card-day .label {
-	font-size: 12px;
-}
+	Menus
 
-/***----------------------------------      • Calender card •      -----------------------------------***/
+*/
+
+/* 
+	Calender
+*/
 
 .calendar {
 	background-color: var(--midnight-mantle);
@@ -238,13 +389,14 @@
 	margin-top: -20px;
 }
 
-/***----------------------------------      • Home and Folders card •      -----------------------------------***/
-
+/* 
+	Home
+*/
 .home-menu {
 	background-color: var(--midnight-mantle);
-	border-radius: 8px;
+	border-radius: 10px;
 	padding: 0;
-	margin-left: 0px;
+	/* margin-left: 5px; */
 }
 .home-menu .menu-item {
 	padding: 8px 48px 8px 12px;
@@ -252,61 +404,31 @@
 	font-weight: 600;
 }
 .home-menu .menu-item:hover {
-	background-color: var(--mid-overlay);
-	color: #181825;
+	background-color:  #ffffff1a;
 	margin: 4px 6px;
 	border-radius: 4px;
 }
 .home-menu .separator {
 	max-height: 1px;
-	background-color: #45475a;
+	background-color: #909094;
 	margin: 0 8px;
 }
 
-/***----------------------------------      • Update check •      -----------------------------------***/
-
-.update-check-widget {
-    padding: 0 0px 0 0px;
-}
-.update-check-widget .icon {
-    font-size: 16px;
-}
-.update-check-widget .widget-container.winget,
-.update-check-widget .widget-container.windows {
-    background: var(--mauve);
-    margin: 0px 0px 0px 0px;
-    border-radius: 8px;
-    border: 0px solid var(--sapphire);
-}
-.update-check-widget .widget-container.winget .icon,
-.update-check-widget .widget-container.windows .icon {
-    color: var(--base);
-    margin: 0 2px 0 6px;
-}
-.update-check-widget .widget-container.winget .label,
-.update-check-widget .widget-container.windows .label {
-    margin: 0 6px 0 1px;
-    color: var(--base);
-    font-weight: 900;
-    font-size: 14px;
-}
-
-/***----------------------------------      • Note check •      -----------------------------------***/
-
-.notes-widget .label {
-   font-size: 14px;
-   color: rgb(203, 166, 247);
-}
-
+/* 
+	Notes
+*/
 .notes-menu {
     min-width: 400px;
     max-width: 400px;
     background-color: var(--midnight-mantle);
-    border-radius: 8px;
+    border-radius: 10px;
+	padding-bottom: 8px;
 }
 .notes-menu .note-item {
     background-color:transparent;
     border-bottom: 1px solid var(--evening-surface);
+	margin: 0 8px;
+	border-radius: 8px;
 }
 .notes-menu .note-item:hover {
     background-color: var(--night-surface);
@@ -369,7 +491,7 @@
     border: 1px solid var(--violet-mist);
     font-family: 'Segoe UI';
     font-size: 14px;
-    max-height: 30px;
+    max-height: 100px;
     padding: 4px;
     border-radius: 6px;
 }
@@ -377,19 +499,133 @@
     border: 1px solid var(--violet-mist);
 }
 
-/***----------------------------------      • Media •      -----------------------------------***/
+/* 
+	Wallpaper
+*/
 
-.media-widget {
-	padding: 0;
-    padding-left: 3px;
+.wallpapers-gallery-window {
+	margin: 0;
+    border-radius: 10px;
+	background-color: var(--midnight-mantle);
 }
-.media-widget .label {
-	/* color: var(--lavender-field); */
-    padding-left: 5px;
+.wallpapers-gallery-buttons {
+	background-color: var(--dusk-base);
+	color: var(--cloud-text);
+	border: none;
+	font-size: 16px;
+	padding: 8px 0px;
+	border-radius: 8px;
+	margin: 8px;
+	width: 600px;
 }
-.media-widget .label .media_icon {
-    font-size: 13px !important;
+.wallpapers-gallery-buttons:hover {
+	background-color: var(--evening-surface);
 }
+
+/* 
+	Github
+*/
+
+.github-menu    {
+    background-color: var(--midnight-mantle);
+    max-height: 500px;
+	min-height: 300px;
+    min-width: 400px;
+    border-radius: 10px;
+	padding: 10px;
+}
+.github-menu .header {
+    border-bottom: 1px solid var(--evening-surface);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px;
+    color: white;
+    background-color: var(--midnight-mantle);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.github-menu .footer {
+    font-size: 12px;
+    padding: 4px 8px 6px 8px;
+    color: #9399b2;
+    background-color: var(--midnight-mantle);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+	height: 0;
+}
+.github-menu .contents {
+    background-color:  transparent;
+	max-width: 413.6px;
+}
+.github-menu .contents .item {
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 3px;
+}
+.github-menu .contents .item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+    color: #9399b2;
+    font-family: Segoe UI;
+}
+.github-menu .contents .item .title {
+    font-size: 14px;
+    font-weight: 600; 
+}
+.github-menu .contents .item .description {
+    font-size: 12px;
+    font-weight: 500
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+    color: #ffffff
+}
+.github-menu .contents .item .icon {
+    font-size: 16px;
+    padding-right: 0;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: #9399b2;
+}
+.github-menu .contents .item.new .icon {
+    color: #3fb950;
+}
+
+/* 
+	Volume and brightness
+*/
+.audio-menu,
+.brightness-menu {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.audio-container .device {
+	border: none;
+	padding: 6px 8px 6px 4px;
+	margin: 2px 0;
+	font-size: 12px;
+	border-radius: 4px;
+}
+.audio-container .device.selected {
+	background-color: var(--evening-surface);
+}
+.audio-container .device:hover {
+	background-color: var(--evening-surface);
+}
+.volume-slider::handle,
+.brightness-slider::handle {
+	background-color: var(--violet-mist);
+    border-radius: 5px;
+}
+
+/* 
+	Media
+*/
+
 .media-menu {
     min-width: 420px;
     max-width: 420px;
@@ -492,234 +728,4 @@
     background: var(--violet-mist);
     border-radius: 3px;
     height: 4px;
-}
-
-/***----------------------------------      • Wallpaper •      -----------------------------------***/
-
-.wallpapers-gallery-window {
-	border: 2px;
-	margin: 0;
-    border-radius: 8px;
-}
-.wallpapers-gallery-buttons {
-	background-color: var(--dusk-base);
-	color: var(--cloud-text);
-	border: none;
-	font-size: 16px;
-	padding: 8px 0px;
-	border-radius: 8px;
-	margin: 8px 8px 8px 8px;
-	width: 600px;
-}
-.wallpapers-gallery-buttons:hover {
-	background-color: var(--evening-surface);
-}
-.wallpapers-widget {
-    padding: 0 6px 0 6px;
-}
-
-/***----------------------------------      • system tray •      -----------------------------------***/
-
-.systray .pinned-container {
-    background: transparent;
-}
-.systray .pinned-container[forceshow=true] {
-    background: var(--evening-surface);
-}
-.systray .button {
-    border-radius: 4px;
-    padding: 2px 2px;
-}
-.systray .button:hover {
-    background: var(--evening-surface);
-}
-.systray .button[dragging=true] {
-    background: cyan;
-    border-color: #FF8800;
-}
-.systray .unpinned-visibility-btn {
-    border-radius: 4px;
-    height: 20px;
-    width: 16px;
-}
-.systray .unpinned-visibility-btn:checked {
-    background: var(--evening-surface);
-}
-.systray .unpinned-visibility-btn:hover {
-    border: 1px solid #AAAAAA;
-    border-radius: 4px;
-    border-color: #AAAAAA;
-}
-
-/***----------------------------------      • Battery •      -----------------------------------***/
-
-.battery-widget .widget-container .label.status-low {
-	color: var(--coral-glow);
-	background: rgba(243, 139, 168, 0.245);
-	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
-	border-radius: 8px;
-}
-.battery-widget .widget-container .label.status-medium {
-	color: var(--amberlight);
-	background: rgba(249, 226, 175, 0.25);
-	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
-	border-radius: 8px;
-}
-.battery-widget .widget-container .label.status-high {
-	color: var(--seafoam);
-	background: rgba(148, 226, 213, 0.25);
-	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
-	border-radius: 8px;
-}
-.battery-widget .widget-container .label.status-full {
-	color: var(--moss-green);
-	background: rgba(166, 227, 161, 0.25);
-	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
-	border-radius: 8px;
-}
-.battery-widget .widget-container .label.status-charging {
-	color: var(--morning-blue);
-	background: rgba(137, 180, 250, 0.25);
-	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
-	border-radius: 8px;
-}
-.battery-widget .widget-container .icon.status-low {
-	color: var(--coral-glow);
-}
-.battery-widget .widget-container .icon.status-medium {
-	color: var(--amberlight);
-}
-.battery-widget .widget-container .icon.status-high {
-	color: var(--seafoam);
-	padding-right: 4px;
-}
-.battery-widget .widget-container .icon.status-full {
-	color: var(--moss-green);
-	padding-right: 4px;
-}
-.battery-widget .widget-container .icon.status-charging {
-	color: var(--morning-blue);
-}
-
-/***----------------------------------      • Battery •      -----------------------------------***/
-
-.github-widget .label {
-   font-size: 14px;
-   color: rgb(203, 166, 247);
-}
-.github-menu    {
-    background-color: transparent;
-    max-height: 500px;
-    min-height: 500px;
-    min-width: 400px;
-    border-radius: 8px;
-}
-.github-menu .header {
-    border-bottom: 1px solid var(--evening-surface);
-    font-size: 15px;
-    font-weight: 400;
-    padding: 8px;
-    color: white;
-    background-color: var(--midnight-mantle);
-}
-.github-menu .footer {
-    border-top: 1px solid var(--evening-surface);
-    font-size: 12px;
-    padding: 4px 8px 6px 8px;
-    color: #9399b2;
-    background-color: var(--midnight-mantle);
-    border-radius: 8px;
-}
-.github-menu .contents {
-    background-color:  var(--midnight-mantle);
-    border-radius: 8px;
-}
-.github-menu .contents .item {
-    min-height: 40px;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
-    border-radius: 8px;
-}
-.github-menu .contents .item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0);
-}
-.github-menu .contents .item .title,
-.github-menu .contents .item .description {
-    color: #9399b2;
-    font-family: Segoe UI;
-}
-.github-menu .contents .item .title {
-    font-size: 14px;
-    font-weight: 600; 
-}
-.github-menu .contents .item .description {
-    font-size: 12px;
-    font-weight: 500
-}
-.github-menu .contents .item.new .title,
-.github-menu .contents .item.new .description {
-    color: #ffffff
-}
-.github-menu .contents .item .icon {
-    font-size: 16px;
-    padding-right: 0;
-    padding-left: 8px;
-    padding-right: 4px;
-    color: #9399b2;
-}
-.github-menu .contents .item.new .icon {
-    color: #3fb950;
-}
-
-/***----------------------------------      • Apps •      -----------------------------------***/
-
-.apps-widget .widget-container .label { 
-    font-size: 13px;
-} 
-
-/***----------------------------------      • Vscode •      -----------------------------------***/
-
-.vscode-menu {
-    max-height: 500px;
-    min-height: 500px;
-    min-width: 350px;
-}
-.vscode-menu .header {
-    border-bottom: 1px solid var(--evening-surface);
-    font-size: 15px;
-    font-weight: 400;
-    padding: 8px;
-    color: #cdd6f4;
-    background-color: var(--midnight-mantle);
-}
-.vscode-menu .contents {
-    background-color: var(--midnight-mantle);
-}
-.vscode-menu .contents .item {
-    min-height: 30px;
-    border-bottom: 1px solid var(--evening-surface);
-}
-.vscode-menu .contents .item .title {
-    font-size: 12px;
-    margin-right: 5px;
-}
-.vscode-menu .contents .item .folder-icon {
-    font-size: 16px;
-    margin-left: 8px;
-    color: #f2cdcd;
-}
-.vscode-menu .contents .item .file-icon {
-    font-size: 16px;
-    margin-left: 8px;
-    color: #cba6f7;
-}
-.vscode-menu .contents .item:hover {
-    background-color: #45475a;
-    border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
