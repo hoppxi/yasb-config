@@ -1,0 +1,689 @@
+
+:root {
+	--blush-petal: rgb(248, 222, 218);  
+	--sunset-peach: rgb(243, 208, 195);  
+	--orchid-bloom: rgb(240, 198, 226);  
+	--violet-mist: rgb(190, 160, 230);     
+	--coral-glow: rgb(236, 120, 146);    
+	--rosewood: rgb(221, 145, 157);      
+	--apricot-haze: rgb(247, 176, 128);  
+	--amberlight: rgb(245, 215, 160);    
+	--moss-green: rgb(150, 210, 150);    
+	--seafoam: rgb(134, 211, 198);       
+	--clear-sky: rgb(125, 205, 225);     
+	--coastal-blue: rgb(105, 185, 220);  
+	--morning-blue: rgb(125, 170, 240);  
+	--lavender-field: rgb(165, 180, 250);
+
+	--cloud-text: rgb(215, 222, 245);    
+	--mist-text: rgb(195, 202, 230);       
+	--fog-text: rgb(175, 182, 210);        
+
+	--soft-overlay: rgb(155, 160, 190);    
+	--mid-overlay: rgba(135, 140, 170, .5);     
+	--deep-overlay: rgb(115, 120, 145);    
+
+	--twilight-surface: rgba(95, 98, 120, .6); 
+	--evening-surface: rgba(75, 78, 100, .5);  
+	--night-surface: rgba(50, 52, 70, .3);     
+
+	--dusk-base: rgba(38, 38, 54, .5);         
+	--midnight-mantle: rgba(28, 28, 42, .3);   
+	--noir-crust: rgb(20, 20, 30);        
+}
+
+* {
+	font-size: 11px;
+	color: #cdd6f4;
+	font-weight: 500;
+	font-family: "JetBrainsMono NFP";
+	margin: 0;
+	padding: 0;
+}
+.yasb-bar {
+	padding: 0 4px;
+	margin: 0;
+	background-color: rgba(38, 38, 54, 0.74);
+}
+.widget {
+	padding: 0 4px;
+	margin: 4px 0;
+}
+.widget .label {
+	padding: 1px 2px 1px 2px;
+}
+.widget .label.alt {
+	padding: 1px 8px 1px 8px;
+}
+.icon {
+	font-size: 16px;
+}
+
+/* Active window */
+.active-window-widget {
+	padding: 3px;
+	padding-right: -7px;
+}
+.active-window-widget .label {
+	font-size: 16px;
+}
+/* Glazewm Workspaces */
+.glazewm-workspaces {
+	border-radius: 13px;
+	padding: 4px;
+	/* margin: 0 3px; */
+}
+.glazewm-workspaces .ws-btn {
+    color: #00000000;
+	width: 12px;
+	height: 12px;
+	background-color: var(--mid-overlay);
+	border-radius: 6px;
+	margin: 0 2px;
+}
+.glazewm-workspaces .ws-btn.active_populated,
+.glazewm-workspaces .ws-btn.active_empty {
+	background-color: var(--violet-mist);
+	width: 33px;
+}
+.glazewm-workspaces .ws-btn:hover {
+    background-color: var(--rosewood);
+}
+.glazewm-tiling-direction {
+	padding-right: 10px;
+	margin: 4px 2px 4px 0px;
+}
+.glazewm-tiling-direction .btn {
+    font-size: 24px;
+    border: none;
+}
+
+
+/* Apps */
+.search .label {
+	font-size: 14px;
+	border-radius: 5px;
+	padding: 0 160px;
+	margin: 1px;
+	border: 1px solid var(--cloud-text);
+}
+.search .label:hover {
+	border-color: var(--coastal-blue);
+	background-color: var(--mid-overlay);
+}
+/* .search .label:hover {
+	color: #fff;
+} */
+
+/* Quick apps */
+.notes-widget {
+	padding-right: 10px;
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+}
+.wallpapers-widget {
+	padding-left: 10px;
+	border-bottom-left-radius: 13px;
+	border-top-left-radius: 13px;
+	margin: 4px 0px 4px 2px;
+}
+
+
+/* Quick settings */
+.battery-widget .widget-container .label.status-critical {
+	color: var(--coral-glow);
+	background: rgba(230, 24, 24, 0.245);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-low {
+	color: var(--coral-glow);
+	background: rgba(243, 139, 168, 0.245);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-medium {
+	color: var(--amberlight);
+	background: rgba(249, 226, 175, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-high {
+	color: var(--seafoam);
+	background: rgba(148, 226, 213, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-full {
+	color: var(--moss-green);
+	background: rgba(166, 227, 161, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .label.status-charging {
+	color: var(--morning-blue);
+	background: rgba(137, 180, 250, 0.25);
+	margin: 4px 0px 4px 0px;
+	padding: 0 6px 0 6px;
+	border-radius: 9px;
+}
+.battery-widget .widget-container .icon.status-low {
+	color: var(--coral-glow);
+}
+.battery-widget .widget-container .icon.status-medium {
+	color: var(--amberlight);
+}
+.battery-widget .widget-container .icon.status-high {
+	color: var(--seafoam);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-full {
+	color: var(--moss-green);
+	padding-right: 4px;
+}
+.battery-widget .widget-container .icon.status-charging {
+	color: var(--morning-blue);
+}
+.battery-widget {
+	border-bottom-right-radius: 13px;
+	border-top-right-radius: 13px;
+	margin: 4px 0;
+}
+.brightness-widget {
+	padding-left: 6px;
+	border-bottom-left-radius: 13px;
+	border-top-left-radius: 13px;
+	margin: 4px 0;
+}
+
+.wifi-widget {
+	padding-right: 6px;
+}
+.brightness-widget,
+.wifi-widget,
+.volume-widget,
+.battery-widget {
+	background-color: var(--midnight-mantle);
+}
+
+/* Media */
+.media-widget {
+    padding: 0 6px;
+	border-radius: 13px;
+	margin-right: 4px 2px;
+}
+.media-widget .label {
+    padding-left: 5px;
+}
+.media-widget .btn {
+    font-size: 13px;
+	padding-left: 5px;
+}
+.media-widget .btn:hover {
+	color: var(--violet-mist);
+}
+
+
+.noti-area {
+	border-radius: 13px;
+	background-color: var(--dusk-base)
+}
+.noti-area .label {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+/* Clock */
+.clock-widget {
+	border-radius: 13px;
+	padding: 0 9px;
+}
+
+/* systray */
+
+.systray {
+	border-radius: 13px;
+	/* padding: 0 8px; */
+	margin: 4px 0px;
+}
+.systray .pinned-container {
+    background: transparent;
+}
+.systray .button {
+    border-radius: 4px;
+    padding: 2px 2px;
+}
+.systray .button:hover {
+    background: var(--twilight-surface);
+}
+.systray .button[dragging=true] {
+    background: cyan;
+    border-color: #FF8800;
+}
+.systray .unpinned-visibility-btn {
+    border-radius: 4px;
+    height: 20px;
+    width: 16px;
+	font-size: 14px;
+}
+.systray .unpinned-visibility-btn:checked {
+    background: var(--twilight-surface);
+}
+.systray .unpinned-visibility-btn:hover {
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    border-color: #AAAAAA;
+}
+
+/* Media */
+.media-widget {
+	padding: 0px;
+}
+
+/* 
+
+	Menus
+
+*/
+
+/* 
+	Calender
+*/
+
+.calendar {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+	background-color: rgba(17, 17, 27, 0);
+	color: var(--mid-overlay);
+	margin: 0;
+	padding: 0;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+	color: #4c4f69;
+	background: var(--violet-mist);
+	border-radius: 8px;
+}
+.calendar .day-label {
+	margin-top: 20px;
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+	font-size: 16px;
+	color: var(--cloud-text);
+	font-weight: 700;
+	min-width: 180px;
+	max-width: 180px;
+}
+.calendar .month-label {
+	font-weight: normal;
+	padding-bottom: 12px;
+}
+.calendar .date-label {
+	font-size: 88px;
+	font-weight: 900;
+	color: var(--cloud-text);
+	margin-top: -20px;
+}
+
+/* 
+	Home
+*/
+.home-menu {
+	background-color: var(--midnight-mantle);
+	border-radius: 10px;
+	padding: 0;
+	/* margin-left: 5px; */
+}
+.home-menu .menu-item {
+	padding: 8px 48px 8px 12px;
+	font-size: 12px;
+	font-weight: 600;
+}
+.home-menu .menu-item:hover {
+	background-color:  #ffffff1a;
+	margin: 4px 6px;
+	border-radius: 4px;
+}
+.home-menu .separator {
+	max-height: 1px;
+	background-color: #909094;
+	margin: 0 8px;
+}
+
+/* 
+	Notes
+*/
+.notes-menu {
+    min-width: 400px;
+    max-width: 400px;
+    background-color: var(--midnight-mantle);
+    border-radius: 10px;
+	padding-bottom: 8px;
+}
+.notes-menu .note-item {
+    background-color:transparent;
+    border-bottom: 1px solid var(--evening-surface);
+	margin: 0 8px;
+	border-radius: 8px;
+}
+.notes-menu .note-item:hover {
+    background-color: var(--night-surface);
+}
+.notes-menu .note-item .icon {
+    font-size: 16px;
+    padding: 0 4px;
+    color: rgb(203, 166, 247);
+}
+.notes-menu .delete-button {
+    color: #ff6b6b;
+    background: transparent;
+    border: none;
+    font-size: 8px;
+    padding: 7px 8px;
+    border-radius: 3px;
+}
+.notes-menu .delete-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.notes-menu .note-item .title {
+    font-size: 13px;
+    font-family: 'Segoe UI';
+}
+.notes-menu .note-item .date {
+    font-size: 12px;
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.4);
+}
+.notes-menu .empty-list {
+    font-family: 'Segoe UI';
+    color: rgb(203, 166, 247);
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0 20px 0;     
+}
+.notes-menu .add-button,  
+.notes-menu .cancel-button {
+    padding: 8px;
+    background-color: var(--night-surface);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Segoe UI';
+}
+.notes-menu .cancel-button {
+    margin-left: 4px;
+}
+.notes-menu .add-button:hover,
+.notes-menu .cancel-button:hover {
+    background-color: var(--evening-surface);
+}
+.notes-menu .scroll-area {
+    background: transparent; 
+    border: none; 
+    border-radius:0;
+}
+.notes-menu .note-input {
+    background-color:var(--dusk-base);
+    border: 1px solid var(--violet-mist);
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    max-height: 100px;
+    padding: 4px;
+    border-radius: 6px;
+}
+.note-input:focus {
+    border: 1px solid var(--violet-mist);
+}
+
+/* 
+	Wallpaper
+*/
+
+.wallpapers-gallery-window {
+	margin: 0;
+    border-radius: 10px;
+	background-color: var(--midnight-mantle);
+}
+.wallpapers-gallery-buttons {
+	background-color: var(--dusk-base);
+	color: var(--cloud-text);
+	border: none;
+	font-size: 16px;
+	padding: 8px 0px;
+	border-radius: 8px;
+	margin: 8px;
+	width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+	background-color: var(--evening-surface);
+}
+
+/* 
+	Github
+*/
+
+.github-menu    {
+    background-color: var(--midnight-mantle);
+    max-height: 500px;
+	min-height: 300px;
+    min-width: 400px;
+    border-radius: 10px;
+	padding: 10px;
+}
+.github-menu .header {
+    border-bottom: 1px solid var(--evening-surface);
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px;
+    color: white;
+    background-color: var(--midnight-mantle);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.github-menu .footer {
+    font-size: 12px;
+    padding: 4px 8px 6px 8px;
+    color: #9399b2;
+    background-color: var(--midnight-mantle);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+	height: 0;
+}
+.github-menu .contents {
+    background-color:  transparent;
+	max-width: 413.6px;
+}
+.github-menu .contents .item {
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 3px;
+}
+.github-menu .contents .item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+    color: #9399b2;
+    font-family: Segoe UI;
+}
+.github-menu .contents .item .title {
+    font-size: 14px;
+    font-weight: 600; 
+}
+.github-menu .contents .item .description {
+    font-size: 12px;
+    font-weight: 500
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+    color: #ffffff
+}
+.github-menu .contents .item .icon {
+    font-size: 16px;
+    padding-right: 0;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: #9399b2;
+}
+.github-menu .contents .item.new .icon {
+    color: #3fb950;
+}
+
+/* 
+	Volume and brightness
+*/
+.audio-menu,
+.brightness-menu {
+	background-color: var(--midnight-mantle);
+    border-radius: 8px;
+}
+.audio-container .device {
+	border: none;
+	padding: 6px 8px 6px 4px;
+	margin: 2px 0;
+	font-size: 12px;
+	border-radius: 4px;
+}
+.audio-container .device.selected {
+	background-color: var(--evening-surface);
+}
+.audio-container .device:hover {
+	background-color: var(--evening-surface);
+}
+.volume-slider::handle,
+.brightness-slider::handle {
+	background-color: var(--violet-mist);
+    border-radius: 5px;
+}
+
+/* 
+	Media
+*/
+
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: var(--midnight-mantle);
+	border-radius: 8px;
+}
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-family: 'Segoe UI';
+}
+.media-menu .artist {
+    font-size: 13px;
+    color: var(--violet-mist);
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.media-menu .source {
+    font-size: 11px;
+    color: var(--dusk-base);
+    font-weight: normal;
+    border-radius: 3px;
+    background-color: var(--deep-overlay);
+    padding: 2px 4px;
+
+}
+.media-menu .source.firefox {
+    background-color: #ff583b;
+    color: #ffffff;
+}
+.media-menu .source.spotify {
+    background-color: #199143;
+    color: #ffffff;
+}
+.media-menu .source.edge {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+.media-menu .source.windows-media {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+
+.media-menu .btn {
+    font-family: "Segoe Fluent Icons";
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+	color: var(--deep-overlay) ;
+}
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+.media-menu .btn:hover {
+    color: var(--soft-overlay);
+}
+.media-menu .btn.play {
+    font-size: 24px
+}
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+    color: #4e525c;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.media-menu .playback-time {
+    font-size: 13px;
+    font-family: 'Segoe UI';
+    color: var(--violet-mist);
+    margin-top: 20px;
+    min-width: 100px;
+}
+.media-menu .progress-slider {
+    height: 10px;
+    margin: 5px 4px;
+    border-radius: 3px;
+}
+.media-menu .progress-slider::groove {
+    background: transparent;
+    height: 2px;
+    border-radius: 3px;
+    background: var(--night-surface);
+
+}
+.media-menu .progress-slider::groove:hover {
+    background: transparent;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--night-surface);
+}
+.media-menu .progress-slider::sub-page {
+    background: var(--violet-mist);
+    border-radius: 3px;
+    height: 4px;
+}
+
+/* Hover overrides */
+
+.label:hover {
+	color: var(--coastal-blue)
+}
+.icon:hover {
+	color: var(--coastal-blue)
+}

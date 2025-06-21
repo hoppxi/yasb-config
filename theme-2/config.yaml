@@ -1,0 +1,325 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+
+bars:
+  status-bar:
+    enabled: true
+    screens: ['*'] 
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: true
+    blur_effect:
+      enabled: true 
+      acrylic: true 
+      dark_mode: true
+      round_corners: true
+      border_color: "Normal"
+    window_flags:
+      always_on_top: true
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 35
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left:
+        [
+          # "home",
+          "active_window",
+          "glazewm_workspaces",
+          "apps",
+          "media",
+          "update_check",
+          # "taskbar"
+        ] 
+      center: [
+          "glazewm_tiling_direction",
+          "search",
+          "wallapers",
+          "github",
+          "notes"
+        ]
+      right:
+        [
+          "systray",
+          "brightness",
+          "volume",
+          "wifi",
+          "battery",
+          "clock",
+          "noti"
+        ]
+widgets:
+  active_window:
+    type: "yasb.active_window.ActiveWindowWidget"
+    options:
+      label: ""
+      label_alt: ""
+      label_no_window: "\uf303"
+      label_icon: true
+      label_icon_size: 16
+      max_length: 20
+      max_length_ellipsis: "..."
+      monitor_exclusive: true
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      hide_empty_workspaces: true
+      hide_if_offline: true
+      offline_label: "No Workspaces"
+  apps: 
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: "{data}"
+      class_name: "quick-access"
+      app_list:
+        - {icon: "Files", launch: "C:\\Users"} 
+        - {icon: "Code", launch: "C:\\Users"} 
+        - {icon: "Edge", launch: "C:\\Users"} 
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "Media"
+      label_alt: ""
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+      max_field_size:
+        label: 20
+        label_alt: 20
+      show_thumbnail: false
+      controls_only: false
+      controls_left: true
+      controls_hide: true
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#cba6f7"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+  update_check:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      winget_update:
+        enabled: true
+        label: "<span>\uf0ab</span>{count}"
+        interval: 180
+        exclude: []
+      windows_update:
+        enabled: false
+        label: "<span>\uf0ab</span>{count}"
+        interval: 240
+        exclude: []
+  glazewm_tiling_direction:
+    type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
+    options:
+      horizontal_label: "\udb81\udce1"
+      vertical_label: "\udb81\udce2"
+  search: 
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: "{data}"
+      class_name: "search"
+      app_list:
+        - {icon: "\uf422 Search", launch: "launcher"} 
+  github:
+    type: "yasb.github.GithubWidget"
+    options:
+      label: "<span>\ueba1</span>"
+      label_alt: "Notifications {data}" 
+      token: ghp_xxxxxxx 
+      max_notification: 20
+      notification_dot:
+        enabled: True
+        corner: "bottom_left" 
+        color: "gray" 
+        margin: [ 1, 1 ] 
+      only_unread: false 
+      max_field_size: 54 
+      update_interval: 3600 
+      menu:
+        blur: true 
+        round_corners: true 
+        round_corners_type: "normal" 
+        border_color: "System" 
+        alignment: "center"
+        direction: "down"
+  wallapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\uf03e</span>"
+      image_path: "C:\\Users"
+      change_automatically: false
+      update_interval: 60
+      gallery:
+        enabled: true
+        blur: true
+        image_width: 604
+        image_per_page: 2
+        show_buttons: true
+        orientation: "landscape"
+        image_spacing: 15
+        lazy_load: true
+        lazy_load_delay: 80
+        lazy_load_fadein: 400
+        image_corner_radius: 8
+        enable_cache: true
+  notes:
+    type: "yasb.notes.NotesWidget"
+    options:
+      label: "<span>\udb82\udd0c</span>"
+      label_alt: "{count} notes"
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        max_title_size: 150
+        show_date_time: true
+      icons:
+        note: "\udb82\udd0c"
+        delete: "\ue20d"
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\uf105"
+      label_expanded: "\uf104"
+      label_position: "left"
+      icon_size: 16
+      pin_click_modifier: "alt"
+      show_unpinned: false
+      show_unpinned_button: true
+      show_battery: false
+      show_volume: false
+      show_network: true
+  brightness:
+    type: "yasb.brightness.BrightnessWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "Brightness {percent}%"
+      tooltip: true
+      hide_unsupported: true
+      brightness_toggle_level: [0, 50, 100]
+      auto_light: false
+      auto_light_icon: "\udb80\udce1"
+      auto_light_night_level: 35
+      auto_light_night_start_time: "19:00"
+      auto_light_night_end_time: "06:45"
+      auto_light_day_level: 75
+      brightness_icons: [
+        "\udb80\udcde",  # Icon for 0-25% brightness
+        "\udb80\udcdd",  # Icon for 26-50% brightness
+        "\udb80\udcdf",  # Icon for 51-75% brightness
+        "\udb80\udce0"   # Icon for 76-100% brightness
+      ]
+      brightness_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "center"
+        direction: "down"
+      callbacks:
+          on_left: "toggle_brightness_menu"
+          on_right: "toggle_label"
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_label"
+        on_right: "exec cmd.exe /c start ms-settings:network"
+      wifi_icons: [
+        "\udb82\udd2e",
+        "\udb82\udd1f",
+        "\udb82\udd22",
+        "\udb82\udd25",
+        "\udb82\udd28" 
+      ]
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "{volume}"
+      volume_icons:
+        - "\ueee8"  # Icon for muted
+        - "\uf026"  # Icon for 0-10% volume
+        - "\uf027"  # Icon for 11-30% volume
+        - "\uf027"  # Icon for 31-60% volume
+        - "\uf028"  # Icon for 61-100% volume
+      callbacks:
+        on_right: "exec cmd.exe /c start ms-settings:sound"
+        on_middle: "toggle_label"
+      audio_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "center"
+        direction: "down"
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "{icon} {percent}%"
+      label_alt: "{icon} {percent}% | time: {time_remaining}"
+      charging_options:
+        icon_format: "{charging_icon}"
+      status_icons:
+        icon_charging: "\udb80\udc84"
+        icon_critical: "\udb80\udc7a"
+        icon_low: "\udb80\udc7b"
+        icon_medium: "\udb80\udc7e"
+        icon_high: "\udb80\udc80"
+        icon_full: "\udb80\udc79"
+      status_thresholds:
+        critical: 15
+        low: 30
+        medium: 60
+        high: 75
+        full: 100
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label_alt: "{%a, %d %b %I:%M:%S %p} "
+      label: "{%I:%M:%S %p}"
+      timezones: []
+      callbacks:
+        on_left: "toggle_calendar"
+        on_right: "toggle_label"
+      calendar:
+        alignment: "right"
+  noti:
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: "{data}"
+      class_name: "noti-area"
+      app_list:
+        - {icon: "\uf489", launch: "wt"}
+        - {icon: "\uf0a2", launch: "quick_settings"}
